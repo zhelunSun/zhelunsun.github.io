@@ -14,8 +14,8 @@ systems and scientific workflows that allow non-expert users to conduct sophisti
 geospatial analysis through natural language — with LLM-based multi-agent systems as 
 the core reasoning engine.`,
   social: {
-    github: "https://github.com/sunzl23", // update with actual handle
-    scholar: "https://scholar.google.com/", // update with actual Google Scholar link
+    github: "https://github.com/zhelunSun",
+    scholar: "https://scholar.google.com/citations?hl=en&user=EtxzO04AAAAJ",
     email: "mailto:sunzl23@mails.tsinghua.edu.cn",
     twitter: "", // add if available
   },

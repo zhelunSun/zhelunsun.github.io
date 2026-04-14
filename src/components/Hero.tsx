@@ -12,9 +12,6 @@ export default function Hero() {
       className="relative min-h-[85vh] flex items-center section-container"
       style={{ paddingTop: "calc(var(--nav-height) + 3rem)" }}
     >
-      {/* Background glow blob */}
-      <div className="hero-glow -top-24 -right-32" />
-      <div className="hero-glow bottom-0 -left-48 opacity-50" />
 
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-16 w-full">
         {/* Avatar */}

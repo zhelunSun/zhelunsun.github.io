@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { profile } from "@/data/profile";
 import { Download, Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -60,16 +61,19 @@ export default function Navbar() {
             <Download size={14} />
             CV
           </a>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile menu toggle */}
-        <button
-          className="md:hidden text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)]"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

@@ -10,6 +10,7 @@ export interface Project {
   codeUrl?: string;
   demoUrl?: string;
   paperUrl?: string;
+  imageUrl?: string;
 }
 
 export const projects: Project[] = [

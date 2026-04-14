@@ -6,3 +6,4 @@
 ### AI researchers from academia
 - Haotian Ye （Stanford PhD student） https://haotianye.com/
 - Jiaqi Han （Stanford PhD student） https://hanjq17.github.io/
+- Shunyu Yao （OpenAI Researcher, Princeton PhD） https://ysymyth.github.io/
