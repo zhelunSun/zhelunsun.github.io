@@ -1,0 +1,58 @@
+Sun Zhelun
+ sunzl23@mails.tsinghua.edu.cn ·  (+86) 130-701-86783 ·  Beijing, China
+ Education
+Tsinghua University, Beijing, China 2023 – Present
+Ph.D. Candidate in Ecology
+Research focus: Intelligent systems and scientific workflows for remote sensing analysis
+China Agricultural University, Beijing, China 2019 – 2023
+B.Sc. in Geographic Information Science
+GPA: 3.85 / 4.00
+Relevant coursework: Programming, Data Structures, Spatial Analysis and Geostatistics, Remote Sensing,
+Python GIS Development
+ Publications
+First-author publications
+• Sun, Z., Zhou, Y ., & Y ang, J. (2026). An LLM-based multi-agent system for remote sensing analysis. Big
+Earth Data. doi:10.1080/20964471.2025.2600178
+• Sun, Z. , Li, X., Wei, H., Feng, Z., & Y ang, J. (2024). Landsat image classification using a deep learn-
+ing model and multiple-source training samples. International Journal of Digital Earth , 17(1), 2409351.
+doi:10.1080/17538947.2024.2409351
+• Sun, Z. , Xiao, B., Zhao, Z., Yu, G., Cao, Q., Wang, M., & Y ao, X. (2023). Loading and service imple-
+mentation of GF-1 satellite data based on Open Data Cube. Remote Sensing Technology and Application ,
+38(4), 794–802. doi:10.11873/j.issn.1004-0323.2023.4.0794
+Co-author publications
+• Zhang, Y .,Sun, Z., Ji, J. S., Li, X., & Y ang, J. (2026). Measuring perceived green volume for quantifying
+urban green exposure. Urban Forestry & Urban Greening, 116, 129231. doi:10.1016/j.ufug.2025.129231
+ Selected Research Experience
+LLM-based Remote Sensing Agent System 2024 – Present
+• Developed a user-centric framework for remote sensing analysis, leveraging LLMs as the reasoning core
+and natural-language interface for non-expert users.
+• Built ExpertsRS, a prototype multi-agent system based on AutoGen, with distinct agents coordinating re-
+mote sensing data, tools, and reasoning processes.
+• Demonstrated the potential of the system to lower technical barriers in remote sensing analysis through
+natural-language interaction and interpretable result generation.
+Structured Research Asset Prototype for Urban Forest Remote Sensing 2025 – Present
+• Developed a structured intermediate layer to connect urban forest monitoring objectives with remote sensing
+variables, indicators, and data sources.
+• Organized domain knowledge into an agent-oriented representation to support information retrieval and
+workflow assistance in urban forest biodiversity mapping.
+• Built an early-stage prototype for linking remote sensing variables, ecological indicators, and stage-wise
+analytical processes as reusable research assets.
+GF-1 Data Loading and Service Development Based on Open Data Cube 2020 – 2022
+• Developed Python scripts for loading GF-1 satellite data into the Open Data Cube (ODC) framework.
+• Implemented a web-based data management and service workflow for accessing and analyzing loaded GF-1
+imagery.
+• Built a prototype water detection service using the ODC Web UI.Nighttime Light Analysis of the Ukraine–Russia War 2022
+• Conducted a remote sensing study using VIIRS nighttime light data to assess war-related impacts on human
+activity.
+• Produced pre-war and wartime nighttime light maps of Ukraine and quantified light loss as a proxy for local
+disruption.
+ Honors and Grants
+Taihu Zhiguang Scholarship, Tsinghua University 2025
+Excellent Graduate, Beijing Municipality 2023
+First Prize Scholarship, China Agricultural University 2021
+PI, National Undergraduate Training Program for Innovation (RMB 15,000) 2020
+ Skills
+• AI and Scientific Computing: Python, PyTorch, scikit-learn, pandas, NumPy, SciPy, matplotlib
+• Remote Sensing and Geospatial Computing: Google Earth Engine, GDAL, rasterio, ArcGIS, ENVI
+• Programming and Data Infrastructure: SQL, C#, JavaScript, NetworkX
+• Research and Development Tools: LaTeX, Linux (Ubuntu), Git, Conda
