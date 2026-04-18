@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 import { ExternalLink, FileText, Code, ArrowUpRight, Image as ImageIcon } from "lucide-react";
 
@@ -26,12 +27,15 @@ export default function Projects() {
             >
               {/* Left Column: Image */}
               <div className="w-full sm:w-1/3 md:w-1/4 shrink-0">
-                <div className="aspect-[4/3] sm:aspect-[3/2] rounded-lg border border-[var(--color-border)] overflow-hidden bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-muted)] p-1 shadow-sm group-hover:shadow transition-shadow">
+                <div className="relative aspect-[4/3] sm:aspect-[3/2] rounded-lg border border-[var(--color-border)] overflow-hidden bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-muted)] p-1 shadow-sm group-hover:shadow transition-shadow">
                   {project.imageUrl ? (
-                    <img
+                    <Image
                       src={project.imageUrl}
                       alt={project.title}
-                      className="w-full h-full object-cover rounded opacity-90 group-hover:opacity-100 transition-opacity"
+                      fill
+                      unoptimized
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 33vw, 25vw"
+                      className="object-cover rounded opacity-90 group-hover:opacity-100 transition-opacity"
                     />
                   ) : (
                     <div className="w-full h-full bg-[var(--color-bg-secondary)] flex flex-col items-center justify-center rounded">
