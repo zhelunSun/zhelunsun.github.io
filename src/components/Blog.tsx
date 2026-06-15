@@ -1,41 +1,45 @@
-"use client";
+// src/components/Blog.tsx
+// Homepage "Writing" section — server component (reads filesystem at build time).
+// Shows the 3 most recent posts with a "View all" link to /blog.
 
-import { motion } from "framer-motion";
-import { Rss, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { getSortedPosts } from "@/lib/blog";
+import BlogPostCard from "./BlogPostCard";
 
 export default function Blog() {
-  return (
-    <section id="blog" className="section-spacing">
-      <div className="section-container">
-        <h2 className="section-title">Tech Blog</h2>
+  const latest = getSortedPosts().slice(0, 3);
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-card text-center py-12"
-        >
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 flex items-center justify-center">
-              <Rss size={24} className="text-[var(--color-accent)]" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-1">
-                Coming Soon
-              </h3>
-              <p className="text-sm text-[var(--color-text-secondary)] max-w-md mx-auto">
-                I&apos;m preparing in-depth posts on LLM agents for scientific
-                workflows, remote sensing automation, and thoughts at the
-                intersection of AI and geospatial analysis.
-              </p>
-            </div>
-            <div className="flex items-center gap-1 text-xs text-[var(--color-text-muted)]">
-              <span>Stay tuned</span>
-              <ArrowRight size={12} />
-            </div>
+  return (
+    <section id="writing" className="section-spacing">
+      <div className="section-container">
+        <div className="flex items-end justify-between mb-6">
+          <h2 className="section-title">Writing</h2>
+          {latest.length > 0 && (
+            <Link
+              href="/blog/"
+              className="flex items-center gap-1 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+            >
+              View all
+              <ArrowRight size={14} />
+            </Link>
+          )}
+        </div>
+
+        {latest.length === 0 ? (
+          <div className="glass-card text-center py-12">
+            <p className="text-sm text-[var(--color-text-secondary)] max-w-md mx-auto">
+              Essays on LLM agents for scientific workflows, remote sensing automation,
+              and the intersection of AI and geospatial analysis — coming soon.
+            </p>
           </div>
-        </motion.div>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-3">
+            {latest.map((post) => (
+              <BlogPostCard key={post.slug} post={post} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

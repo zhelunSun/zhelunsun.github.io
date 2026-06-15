@@ -9,8 +9,8 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Education", href: "#education" },
   { label: "Publications", href: "#publications" },
-  { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
+  { label: "Work", href: "#projects" },
+  { label: "Writing", href: "/blog/" },
 ];
 
 export default function Navbar() {

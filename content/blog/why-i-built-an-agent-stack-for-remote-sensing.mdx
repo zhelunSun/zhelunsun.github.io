@@ -1,0 +1,60 @@
+---
+title: "Why I'm Building an Agent Stack for Remote Sensing"
+date: "2026-06-15"
+excerpt: "Remote sensing has no shortage of models. What it lacks is an interface — a way for ecologists, foresters, and urban planners to actually use the models we already have. That's the gap I'm trying to close with LLM-based agents."
+tags: ["agents", "remote-sensing", "research-vision"]
+distribution:
+  x: ""
+  zhihu: ""
+  wechat: ""
+---
+
+Remote sensing has a strange problem: we have more models than we know what to do with, and yet most ecologists still can't use them.
+
+Sentinel-2 revisits every spot on Earth every five days. LiDAR is cheap enough to fly over entire cities. Forest inventories are digitized, labeled, and sitting in institutional databases waiting to be used. And yet — if you're an urban ecologist who wants to map the canopy cover of your city, you still need to either (a) find a collaborator who knows Google Earth Engine, (b) hire a GIS consultant, or (c) spend six months learning it yourself.
+
+This is not a modeling problem. It's an interface problem.
+
+## The first half and the second half
+
+I'll borrow Shunyu Yao's framing because it fits uncomfortably well here. The first half of remote sensing was about building better models — better classifiers, better segmentation, better feature extraction. That work is largely done. The benchmarks are saturated. A fine-tuned ViT will beat a human labeler on most tasks.
+
+The second half is about *deployment* — about getting these models into the hands of the 99% of researchers who will never write PyTorch. And that's where we're stuck.
+
+## Why agents, specifically
+
+A traditional GUI doesn't solve this. GIS software has had GUIs for thirty years, and the barrier hasn't moved. The problem isn't clickability — it's *composition*. Real geospatial workflows chain together five or six steps: find the right tiles, cloud-mask them, compute an index, train or apply a model, aggregate to polygons, export. Each step is simple. The chain is hard. GUIs don't help you chain.
+
+LLM-based agents do. They let a user say "map the tree canopy in this neighborhood and tell me which streets have the least cover" — and the system decomposes that into the chain, executes it, and returns a map and an answer. The user never writes a loop.
+
+This is the bet I'm making: **the bottleneck in remote sensing is no longer the model. It's the orchestration layer.** And LLMs are the first technology that can plausibly fill that layer.
+
+## What this looks like in practice
+
+I've been building toward this in pieces. The current shape of the work:
+
+- **URSA** — a multi-agent system that takes natural-language geospatial requests and plans a tool-chain to fulfill them.
+- **ExpertsRS** — a knowledge-enhancement layer that gives the agents the domain-specific context they need (which indices mean what, which sensor to pick for which task, how to interpret a false-color composite).
+- **Urban Forest Mapping** — the application layer: actual end-to-end canopy and biodiversity mapping for cities, which serves as both the evaluation harness and the deployment target.
+
+The reason this stack works where pure GIS doesn't is that each layer addresses a specific failure mode of the one below it. URSA handles *planning*. ExpertsRS handles *grounding*. The application layer handles *evaluation against reality*.
+
+## What's hard
+
+Three things, roughly in order of difficulty:
+
+1. **Evaluation.** How do you know an agent did the right thing? In a code benchmark, you run the tests. In remote sensing, the "test" is whether a forester looks at your output and says "yeah, that matches what I see on the ground." That's slow, expensive, and not automatable. Building faster proxies without losing fidelity is the real research problem.
+
+2. **Failure modes are silent.** A code agent that fails throws an exception. An RS agent that fails returns a plausible-looking but wrong map. The user has no way to tell. This means the system needs its own uncertainty quantification — not as a nice-to-have, but as a core safety property.
+
+3. **The long tail of tool composition.** Eighty percent of requests are easy. The last twenty percent — "use this specific LiDAR flight, fuse it with Sentinel-2 from the same week, mask out buildings, and classify using a model trained on a different biome" — will break any agent that relies on templated workflows. Handling that tail is where the actual research is.
+
+## Why now
+
+Two things changed in the last two years. LLMs got good enough at tool use to handle multi-step workflows reliably. And the cost of running them dropped enough that an academic lab can actually deploy agents for real users — not just in a demo, but as a service people use.
+
+That window is open now. I don't know how long it stays open. But the work I want to do in my PhD is to walk through it.
+
+---
+
+*This is the first post on this site. If you're working on adjacent problems — agent evaluation, geospatial tooling, urban ecology — I'd love to hear from you. My email is in the footer.*

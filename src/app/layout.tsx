@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Lora } from "next/font/google";
+import { Inter, JetBrains_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -15,10 +15,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const lora = Lora({
-  variable: "--font-lora",
+// Newsreader replaces Lora — more editorial/journal feel, better for long-form
+const newsreader = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -47,7 +50,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} ${lora.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${newsreader.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Providers>{children}</Providers>

@@ -1,0 +1,61 @@
+---
+title: "Building ExpertsRS: Giving Remote Sensing Agents Domain Knowledge"
+date: "2026-05-20"
+excerpt: "Why a generic LLM agent fails at remote sensing, and how injecting structured domain knowledge — indices, sensors, biome-specific quirks — turns it into something a forester would actually trust."
+tags: ["agents", "remote-sensing", "knowledge-enhancement"]
+distribution:
+  x: ""
+  zhihu: ""
+  wechat: ""
+---
+
+When you point a stock LLM agent at a remote sensing task, it fails in a very specific way. It doesn't fail at reasoning. It fails at *grounding*.
+
+Ask it "compute NDVI for this field" and it will correctly identify the formula, pull the right bands, do the math, and return a number. The number will be wrong — because it used Sentinel-2 Band 4 and Band 8 when the image you gave it was from a different sensor with a different band mapping. The agent had the procedure right and the context wrong.
+
+This is the pattern. Over and over. The reasoning is fine. The grounding is missing.
+
+## What "grounding" actually means here
+
+Remote sensing has a thick layer of implicit knowledge that experienced practitioners carry in their heads but that is rarely written down in a form an LLM can use. Examples:
+
+- **Band mappings differ across sensors.** Sentinel-2, Landsat-8, WorldView-3, GaoFen-2 — all have different band numbering. "Red edge" means different things.
+- **Index choice depends on the question.** NDVI is fine for dense canopy. SAVI is better in sparse vegetation. EVI handles atmospheric haze. An agent that always reaches for NDVI will give confidently wrong answers in deserts.
+- **Biome matters.** A model trained on temperate forests does not transfer to tropical ones. Phenology, species mix, and canopy structure all shift what "healthy" looks like.
+- **Seasonality is non-obvious.** A "healthy" deciduous forest looks dead in winter imagery. An agent that doesn't know the acquisition date will misclassify it.
+
+None of this is in the model's pretraining in a usable form. It's scattered across textbooks, papers, and StackExchange answers. *ExpertsRS* is my attempt to structure it.
+
+## The shape of the solution
+
+ExpertsRS is not a fine-tune. It's a knowledge layer that sits between the LLM and the tools, and injects the right context at the right moment. Three components:
+
+### 1. A curated index library
+
+Not just formulas. Each entry includes: when to use it, when not to, what sensors support it, what values mean in different biomes, and citations back to the original papers. The agent queries this library before it picks an index — not after.
+
+### 2. Sensor profiles
+
+For each major sensor: band mappings, spatial resolution, revisit time, known quirks (Sentinel-2's band 10 is noisy; Landsat-7 has the SLC-off gap). The agent loads the relevant profile when it opens an image.
+
+### 3. Biome-specific calibration data
+
+Pointers to transfer-learning datasets, expected phenological signatures, and biome-specific failure modes. The agent consults this when it's about to apply a model trained elsewhere.
+
+## What changed when we added it
+
+The most interesting result wasn't a benchmark number. It was watching the failure mode shift.
+
+Before ExpertsRS, agents failed at the *task* level — they'd return plausible-but-wrong answers and not know they were wrong. After ExpertsRS, agents fail at the *edge* level — they handle the common cases correctly, and when they hit something unusual (a sensor they don't have a profile for, a biome outside their calibration data), they say so. They ask for clarification instead of guessing.
+
+That behavior — *knowing when you don't know* — is what separates a research tool from a toy. And you don't get it by scaling the model. You get it by structuring the context.
+
+## What's next
+
+The current system works for the major optical sensors and the most common vegetation indices. The next layer is SAR — which has its own deep well of implicit knowledge (polarization, incidence angle, speckle filtering) that even many remote sensing practitioners find opaque. If we can give an agent the same kind of structured grounding for SAR that we have for optical, we open up a class of tasks — flood mapping, deforestation monitoring, structural analysis — that are currently gated behind specialists.
+
+That's the work for the next few months.
+
+---
+
+*ExpertsRS is part of my broader agent-stack research. The code is open-source; the link is in the Selected Work section above. Feedback from practitioners — especially foresters and urban ecologists who would actually use this — is the most valuable thing you can give me.*
