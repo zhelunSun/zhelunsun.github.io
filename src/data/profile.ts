@@ -4,7 +4,7 @@
 export const profile = {
   name: "Sun Zhelun",
   nameChinese: "孙哲伦",
-  title: "Ph.D. Candidate in Ecology",
+  title: "Ph.D. Candidate in AI & Remote Sensing",
   affiliation: "Tsinghua University",
   location: "Beijing, China",
   email: "sunzl23@mails.tsinghua.edu.cn",
@@ -12,7 +12,8 @@ export const profile = {
 artificial intelligence and remote sensing. My research centers on building intelligent 
 systems and scientific workflows that allow non-expert users to conduct sophisticated 
 geospatial analysis through natural language — with LLM-based multi-agent systems as 
-the core reasoning engine.`,
+the core reasoning engine. Previously, I received my B.Sc. in Geographic Information 
+Science from China Agricultural University (2019–2023).`,
   social: {
     github: "https://github.com/zhelunSun",
     scholar: "https://scholar.google.com/citations?hl=en&user=EtxzO04AAAAJ",

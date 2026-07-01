@@ -24,7 +24,7 @@ export const publications: Publication[] = [
     year: 2026,
     doi: "10.1080/20964471.2025.2600178",
     paperUrl: "https://doi.org/10.1080/20964471.2025.2600178",
-    codeUrl: "", // add GitHub link when available
+    codeUrl: "https://github.com/zhelunSun/URSA",
     tag: "first-author",
   },
   {

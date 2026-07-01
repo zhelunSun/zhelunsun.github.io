@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { Mail, GraduationCap, MapPin } from "lucide-react";
@@ -21,14 +22,15 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="shrink-0"
         >
-          <div className="w-44 h-44 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-bg-card)] border-2 border-[var(--color-border)] flex items-center justify-center overflow-hidden">
-            {/* Replace with <Image> when a photo is available */}
-            <span className="text-5xl md:text-6xl font-bold text-[var(--color-accent)]/60 select-none">
-              {profile.name
-                .split(" ")
-                .map((w) => w[0])
-                .join("")}
-            </span>
+          <div className="w-52 h-52 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-bg-card)] border-2 border-[var(--color-border)] flex items-center justify-center overflow-hidden relative">
+            <Image
+              src="/assets/zhelun-portrait.jpg"
+              alt={`Portrait of ${profile.name}`}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 13rem, 16rem"
+            />
           </div>
         </motion.div>
 
