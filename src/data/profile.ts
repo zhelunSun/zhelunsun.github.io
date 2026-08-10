@@ -1,26 +1,24 @@
-// src/data/profile.ts
-// Edit this file to update the hero section, bio, and social links.
+import { careerContent } from "@/data/career-contract";
+import { sitePresentation } from "@/data/site-presentation";
+
+const identity = careerContent.identity;
+const affiliation = careerContent.education[0]?.institution ?? "";
 
 export const profile = {
-  name: "Sun Zhelun",
-  nameChinese: "孙哲伦",
-  title: "Ph.D. Candidate in AI & Remote Sensing",
-  affiliation: "Tsinghua University",
-  location: "Beijing, China",
-  email: "sunzl23@mails.tsinghua.edu.cn",
-  bio: `I am a Ph.D. candidate at Tsinghua University, working at the intersection of 
-artificial intelligence and remote sensing. My research centers on building intelligent 
-systems and scientific workflows that allow non-expert users to conduct sophisticated 
-geospatial analysis through natural language — with LLM-based multi-agent systems as 
-the core reasoning engine. Previously, I received my B.Sc. in Geographic Information 
-Science from China Agricultural University (2019–2023).`,
+  name: identity.name,
+  nameChinese: identity.name_zh,
+  title: identity.role,
+  affiliation,
+  location: identity.location,
+  email: identity.email,
+  bio: identity.bio,
   social: {
-    github: "https://github.com/zhelunSun",
-    scholar: "https://scholar.google.com/citations?hl=en&user=EtxzO04AAAAJ",
-    email: "mailto:sunzl23@mails.tsinghua.edu.cn",
-    twitter: "", // add if available
+    github: identity.github,
+    scholar: sitePresentation.scholarUrl,
+    email: `mailto:${identity.email}`,
+    twitter: "",
   },
-  cvPath: "/assets/Zhelun_s_CV_202604_v1.pdf",
+  cvPath: sitePresentation.cvPath,
 } as const;
 
 export type Profile = typeof profile;

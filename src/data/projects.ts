@@ -2,6 +2,7 @@
 // Edit this file to update the projects section.
 
 export interface Project {
+  careerId?: string;
   title: string;
   period: string;
   description: string;
@@ -15,6 +16,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    careerId: "research-llm-rs-agent",
     title: "URSA — Multi-Agent Remote Sensing Analysis System",
     period: "2024 – Present",
     description:
@@ -29,6 +31,7 @@ export const projects: Project[] = [
     paperUrl: "https://doi.org/10.1080/20964471.2025.2600178",
   },
   {
+    careerId: "project-sheaf-ai",
     title: "Sheaf — Knowledge Infrastructure for the Agent Era",
     period: "2025 – Present",
     description:
@@ -42,6 +45,7 @@ export const projects: Project[] = [
     codeUrl: "https://github.com/zhelunSun/sheaf-ai",
   },
   {
+    careerId: "site-only-agent-os",
     title: "Agent OS — Lightweight Multi-Agent Coordination Layer",
     period: "2026",
     description:
@@ -54,6 +58,7 @@ export const projects: Project[] = [
     codeUrl: "https://github.com/zhelunSun/agent-os",
   },
   {
+    careerId: "research-gf1-odc-service",
     title: "GF-1 Data Service via Open Data Cube",
     period: "2020 – 2022",
     description:

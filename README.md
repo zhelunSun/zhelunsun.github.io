@@ -34,13 +34,17 @@ Node 20+ is recommended.
 
 ## Update content
 
-Edit the files in `src/data/`:
+Career facts are generated into `src/generated/site-cv.json` by the private CV
+repository's reviewed sync workflow. Do not edit that file by hand. The files in
+`src/data/` are adapters and website-owned presentation settings:
 
 | File | Section |
 |------|---------|
-| `src/data/profile.ts` | Name, title, bio, social links |
-| `src/data/publications.ts` | Papers |
-| `src/data/projects.ts` | Project showcase |
+| `src/data/profile.ts` | Adapter over public identity plus presentation links |
+| `src/data/education.ts` | Adapter over public education |
+| `src/data/publications.ts` | Adapter over public publications |
+| `src/data/projects.ts` | Presentation layer with stable career IDs |
+| `src/data/site-presentation.ts` | Portrait, Scholar link, and CV asset paths |
 | `content/blog/*.mdx` | Blog posts |
 
 ## Deploy

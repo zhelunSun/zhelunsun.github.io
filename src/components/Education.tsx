@@ -41,18 +41,6 @@ export default function Education() {
                   <MapPin size={12} />
                   {item.location}
                 </p>
-                {item.notes && (
-                  <ul className="space-y-1">
-                    {item.notes.map((note) => (
-                      <li
-                        key={note}
-                        className="text-sm text-[var(--color-text-secondary)] pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[var(--color-accent)]/30"
-                      >
-                        {note}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
             </motion.div>
           ))}

@@ -14,7 +14,7 @@ export default function Projects() {
         <div className="flex flex-col gap-6">
           {projects.map((project, i) => (
             <motion.div
-              key={project.title}
+              key={project.careerId ?? project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}

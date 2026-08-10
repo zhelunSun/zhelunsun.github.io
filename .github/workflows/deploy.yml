@@ -33,6 +33,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Validate generated career contract
+        run: npm run validate:career
+
       - name: Build static site
         run: npm run build
         env:

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
+import { sitePresentation } from "@/data/site-presentation";
 import { Mail, GraduationCap, MapPin } from "lucide-react";
 import GithubIcon from "./GithubIcon";
 
@@ -23,7 +24,7 @@ export default function Hero() {
         >
           <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-bg-card)] border-2 border-[var(--color-border)] overflow-hidden shadow-sm">
             <Image
-              src="/assets/zhelun-portrait.jpg"
+              src={sitePresentation.portraitPath}
               alt={`Portrait of ${profile.name}`}
               fill
               className="object-cover object-[center_8%]"
