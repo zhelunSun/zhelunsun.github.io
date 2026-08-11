@@ -38,6 +38,10 @@ Career facts are generated into `src/generated/site-cv.json` by the private CV
 repository's reviewed sync workflow. Do not edit that file by hand. The files in
 `src/data/` are adapters and website-owned presentation settings:
 
+Publications render the contract's rich `citation_full` projection, so the site
+can retain volume, issue, page, and article-number metadata omitted by a one-page
+CV.
+
 | File | Section |
 |------|---------|
 | `src/data/profile.ts` | Adapter over public identity plus presentation links |

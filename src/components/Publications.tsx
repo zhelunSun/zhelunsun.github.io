@@ -20,7 +20,9 @@ function PubCard({ pub, index }: { pub: Publication; index: number }) {
       <div className="flex flex-col gap-2">
         {/* Title */}
         <h3 className="text-[15px] font-semibold text-[var(--color-text-primary)] leading-snug group-hover:text-[var(--color-accent)] transition-colors">
-          {pub.citation}
+          {("citation_full" in pub && typeof pub.citation_full === "string"
+            ? pub.citation_full
+            : pub.citation)}
         </h3>
 
         {/* Action buttons */}

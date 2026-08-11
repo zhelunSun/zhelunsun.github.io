@@ -6,7 +6,8 @@ const contract = JSON.parse(await readFile(path, "utf8"));
 if (contract.contract?.name !== "zhelun-public-career-profile") {
   throw new Error("Unexpected public career contract name");
 }
-if (contract.contract?.schema_version !== "2.0") {
+const schemaVersion = contract.contract?.schema_version;
+if (!["2.0", "2.1"].includes(schemaVersion)) {
   throw new Error(`Unsupported public career contract version: ${contract.contract?.schema_version}`);
 }
 
@@ -16,6 +17,14 @@ for (const section of ["education", "publications", "research", "projects", "hon
   const ids = content[section].map((item) => item.id);
   if (ids.some((id) => !id) || new Set(ids).size !== ids.length) {
     throw new Error(`Invalid stable IDs in contract section: ${section}`);
+  }
+}
+
+if (schemaVersion === "2.1") {
+  for (const publication of content.publications) {
+    if (!publication.citation_full || !publication.bibliography?.journal) {
+      throw new Error(`Publication ${publication.id} is missing rich bibliography metadata`);
+    }
   }
 }
 
@@ -36,4 +45,3 @@ for (const id of referencedIds) {
 }
 
 console.log(`Career contract validated: v${contract.contract.schema_version}, digest ${contract.contract.content_digest}`);
-
