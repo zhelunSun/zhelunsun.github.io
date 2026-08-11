@@ -1,10 +1,10 @@
 {
   "contract": {
     "name": "zhelun-public-career-profile",
-    "schema_version": "2.0",
+    "schema_version": "2.1",
     "source_repository": "zhelun-cv",
-    "source_revision": "b3e49561223cb163cce99ed4b3826108a59090bc",
-    "content_digest": "sha256:584ef42871e15d433dab98e0106188bc268b34ef333a2a3d4bd84aeaaa52d0aa"
+    "source_revision": "5ab26dd4f7da49298703e04c6b04c499148170b3",
+    "content_digest": "sha256:def662e9f736a36a09c538e335d9318945ca74d1092e9447b3532ac642a94cf7"
   },
   "content": {
     "identity": {
@@ -53,29 +53,101 @@
         "id": "pub-llm-multi-agent-rs-2026",
         "role": "first_author",
         "citation": "Sun, Z., Zhou, Y., & Yang, J. (2026). An LLM-based multi-agent system for remote sensing analysis. Big Earth Data.",
+        "citation_full": "Sun, Z., Zhou, Y., & Yang, J. (2026). An LLM-based multi-agent system for remote sensing analysis. Big Earth Data, 1-25.",
+        "bibliography": {
+          "title": "An LLM-based multi-agent system for remote sensing analysis",
+          "authors": [
+            "Sun, Z.",
+            "Zhou, Y.",
+            "Yang, J."
+          ],
+          "journal": "Big Earth Data",
+          "year": 2026,
+          "volume": null,
+          "issue": null,
+          "pages": "1-25",
+          "article_number": null
+        },
         "doi": "10.1080/20964471.2025.2600178",
-        "url": "https://doi.org/10.1080/20964471.2025.2600178"
+        "url": "https://doi.org/10.1080/20964471.2025.2600178",
+        "metadata_source": "https://api.crossref.org/works/10.1080/20964471.2025.2600178"
       },
       {
         "id": "pub-landsat-deep-learning-2024",
         "role": "first_author",
         "citation": "Sun, Z., Li, X., Wei, H., Feng, Z., & Yang, J. (2024). Landsat image classification using a deep learning model and multiple-source training samples. International Journal of Digital Earth, 17(1), 2409351.",
+        "citation_full": "Sun, Z., Li, X., Wei, H., Feng, Z., & Yang, J. (2024). Landsat image classification using a deep learning model and multiple-source training samples. International Journal of Digital Earth, 17(1), 2409351.",
+        "bibliography": {
+          "title": "Landsat image classification using a deep learning model and multiple-source training samples",
+          "authors": [
+            "Sun, Z.",
+            "Li, X.",
+            "Wei, H.",
+            "Feng, Z.",
+            "Yang, J."
+          ],
+          "journal": "International Journal of Digital Earth",
+          "year": 2024,
+          "volume": "17",
+          "issue": "1",
+          "pages": null,
+          "article_number": "2409351"
+        },
         "doi": "10.1080/17538947.2024.2409351",
-        "url": "https://doi.org/10.1080/17538947.2024.2409351"
+        "url": "https://doi.org/10.1080/17538947.2024.2409351",
+        "metadata_source": "https://api.crossref.org/works/10.1080/17538947.2024.2409351"
       },
       {
         "id": "pub-gf1-open-data-cube-2023",
         "role": "first_author",
         "citation": "Sun, Z., Xiao, B., Zhao, Z., Yu, G., Cao, Q., Wang, M., & Yao, X. (2023). Loading and service implementation of GF-1 satellite data based on Open Data Cube. Remote Sensing Technology and Application, 38(4), 794--802.",
+        "citation_full": "Sun, Z., Xiao, B., Zhao, Z., Yu, G., Cao, Q., Wang, M., & Yao, X. (2023). Loading and service implementation of GF-1 satellite data based on Open Data Cube. Remote Sensing Technology and Application, 38(4), 794-802.",
+        "bibliography": {
+          "title": "Loading and service implementation of GF-1 satellite data based on Open Data Cube",
+          "authors": [
+            "Sun, Z.",
+            "Xiao, B.",
+            "Zhao, Z.",
+            "Yu, G.",
+            "Cao, Q.",
+            "Wang, M.",
+            "Yao, X."
+          ],
+          "journal": "Remote Sensing Technology and Application",
+          "year": 2023,
+          "volume": "38",
+          "issue": "4",
+          "pages": "794-802",
+          "article_number": null
+        },
         "doi": "10.11873/j.issn.1004-0323.2023.4.0794",
-        "url": "https://doi.org/10.11873/j.issn.1004-0323.2023.4.0794"
+        "url": "https://doi.org/10.11873/j.issn.1004-0323.2023.4.0794",
+        "metadata_source": "https://doi.org/10.11873/j.issn.1004-0323.2023.4.0794"
       },
       {
         "id": "pub-perceived-green-volume-2026",
         "role": "co_author",
         "citation": "Zhang, Y., Sun, Z., Ji, J. S., Li, X., & Yang, J. (2026). Measuring perceived green volume for quantifying urban green exposure. Urban Forestry & Urban Greening, 116, 129231.",
+        "citation_full": "Zhang, Y., Sun, Z., Ji, J. S., Li, X., & Yang, J. (2026). Measuring perceived green volume for quantifying urban green exposure. Urban Forestry & Urban Greening, 116, 129231.",
+        "bibliography": {
+          "title": "Measuring perceived green volume for quantifying urban green exposure",
+          "authors": [
+            "Zhang, Y.",
+            "Sun, Z.",
+            "Ji, J. S.",
+            "Li, X.",
+            "Yang, J."
+          ],
+          "journal": "Urban Forestry & Urban Greening",
+          "year": 2026,
+          "volume": "116",
+          "issue": null,
+          "pages": null,
+          "article_number": "129231"
+        },
         "doi": "10.1016/j.ufug.2025.129231",
-        "url": "https://doi.org/10.1016/j.ufug.2025.129231"
+        "url": "https://doi.org/10.1016/j.ufug.2025.129231",
+        "metadata_source": "https://api.crossref.org/works/10.1016/j.ufug.2025.129231"
       }
     ],
     "research": [
